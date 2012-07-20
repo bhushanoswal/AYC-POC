@@ -1,0 +1,2 @@
+module FbOauthHelper
+end
