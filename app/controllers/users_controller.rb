@@ -18,9 +18,10 @@ class UsersController < ApplicationController
   #  end
   #end
   def facebook
-    @token ||= FBGraph::Canvas.parse_signed_request('bf61e4dd28a2b6be82bc0bb295fc94db', params[:signed_request])
-    client = FBGraph::Client.new(:client_id => @token['user_id'],:secret_id =>'bf61e4dd28a2b6be82bc0bb295fc94db' ,:token => @token['oauth_token'])
-    @user = User.create(client)
+    #@token ||= FBGraph::Canvas.parse_signed_request('bf61e4dd28a2b6be82bc0bb295fc94db', params[:signed_request])
+    #client = FBGraph::Client.new(:client_id => @token['user_id'],:secret_id =>'bf61e4dd28a2b6be82bc0bb295fc94db' ,:token => @token['oauth_token'])
+    #@user = User.create(client)
+    @user = User.find_by_uid(current_user.uid)
     #redirect_to users_path
   end
 

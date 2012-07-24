@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
     else
       user = self.new
       user = self.store_data(user, info, country, picture)
+      session = Session.new
+      session.user_id = user.id
+      session.save
       user
     end
   end

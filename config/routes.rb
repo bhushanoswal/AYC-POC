@@ -1,6 +1,13 @@
 AYCPoc::Application.routes.draw do
-  resources :users
-  match '/facebook/callback', :to => 'users#facebook'
+  resources :users do
+    collection do
+      get :facebook
+    end
+  end
+
+  resources :sessions
+
+  match '/facebook/callback', :to => 'session#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
