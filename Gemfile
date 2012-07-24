@@ -27,6 +27,9 @@ gem 'fbgraph'
 gem 'oauth2'
 gem "twitter-bootstrap-rails"
 gem "bcrypt-ruby", :require => "bcrypt"
+group :development do
+  gem 'railroady'
+end
 
 #group :production do
 #  gem 'pg'

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ayc_offer_set_id: 1
+  offer_id: 1
+  required_flag: false
+  display_order: 1
+  reg_delay: 2012-07-24 19:27:01
+
+two:
+  ayc_offer_set_id: 1
+  offer_id: 1
+  required_flag: false
+  display_order: 1
+  reg_delay: 2012-07-24 19:27:01

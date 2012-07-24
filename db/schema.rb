@@ -11,7 +11,89 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120719095255) do
+ActiveRecord::Schema.define(:version => 20120724135701) do
+
+  create_table "ayc_flows", :force => true do |t|
+    t.integer  "session_id"
+    t.integer  "flow_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ayc_offer_sets", :force => true do |t|
+    t.string   "nick_name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "status"
+    t.integer  "limit"
+    t.boolean  "default_flag"
+    t.string   "forcing_id"
+    t.integer  "priority"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "ayc_sets", :force => true do |t|
+    t.integer  "session_id"
+    t.integer  "ayc_offer_set_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "flows", :force => true do |t|
+    t.string   "nick_name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "status"
+    t.integer  "limit"
+    t.boolean  "default_flag"
+    t.string   "forcing_id"
+    t.integer  "priority"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "offer_sets", :force => true do |t|
+    t.integer  "ayc_offer_set_id"
+    t.integer  "offer_id"
+    t.boolean  "required_flag"
+    t.integer  "display_order"
+    t.time     "reg_delay"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "offers", :force => true do |t|
+    t.string   "nick_name"
+    t.string   "name_api_server"
+    t.boolean  "redirectable_flag"
+    t.string   "status"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "page_flows", :force => true do |t|
+    t.integer  "page_id"
+    t.integer  "flow_id"
+    t.integer  "display_order"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.integer  "type"
+    t.text     "html"
+    t.text     "js"
+    t.text     "css"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "uid"

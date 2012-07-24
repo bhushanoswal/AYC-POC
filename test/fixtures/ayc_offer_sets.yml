@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nick_name: MyString
+  start_time: 2012-07-24 19:23:06
+  end_time: 2012-07-24 19:23:06
+  status: MyString
+  limit: 1
+  default_flag: false
+  forcing_id: MyString
+  priority: 1
+
+two:
+  nick_name: MyString
+  start_time: 2012-07-24 19:23:06
+  end_time: 2012-07-24 19:23:06
+  status: MyString
+  limit: 1
+  default_flag: false
+  forcing_id: MyString
+  priority: 1

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page_id: 1
+  flow_id: 1
+  display_order: 1
+
+two:
+  page_id: 1
+  flow_id: 1
+  display_order: 1

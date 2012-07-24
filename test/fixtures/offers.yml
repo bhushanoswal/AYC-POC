@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nick_name: MyString
+  name_api_server: MyString
+  redirectable_flag: false
+  status: MyString
+
+two:
+  nick_name: MyString
+  name_api_server: MyString
+  redirectable_flag: false
+  status: MyString

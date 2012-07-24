@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :uid, :username, :first_name, :email, :password, :age, :gender, :location, :relationship_status, :interested_in, :birthday, :status, :country, :picture, :password_salt
+  has_many :sessions
+
   before_save :encrypt_password
   validates :password, :length => {:within => 6..40}
 
