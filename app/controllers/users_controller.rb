@@ -1,20 +1,38 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-  def index
-    @users = User.all
+  #def index
+  #  @token ||= FBGraph::Canvas.parse_signed_request('bf61e4dd28a2b6be82bc0bb295fc94db', params[:signed_request])
+  #  client = FBGraph::Client.new(:client_id => @token['user_id'],:secret_id =>'bf61e4dd28a2b6be82bc0bb295fc94db' ,:token => @token['oauth_token'])
+  #  @info = client.selection.me.info!
+  #  @country = client.fql.query("SELECT current_location FROM user WHERE uid = #{@token['user_id']}")
+  #  User.store_data(@info)
+  #  logger.info "############INFO#{@info.inspect}"
+  #  logger.info "############Token#{@country.inspect}"
+  #  logger.info "############Token#{@country.inspect}"
+  #  @users = User.all
+  #
+  #  respond_to do |format|
+  #    format.html # index.html.erb
+  #    format.json { render :json => @users }
+  #  end
+  #end
+  def facebook
     @token ||= FBGraph::Canvas.parse_signed_request('bf61e4dd28a2b6be82bc0bb295fc94db', params[:signed_request])
     client = FBGraph::Client.new(:client_id => @token['user_id'],:secret_id =>'bf61e4dd28a2b6be82bc0bb295fc94db' ,:token => @token['oauth_token'])
-    @info = client.selection.me.info!
-    logger.info "############INFO#{@info.inspect}"
-    logger.info "############Token#{@token['user_id'].inspect}"
+    @user = User.create(client)
+    #redirect_to users_path
+  end
+
+  def index
+    logger.info "=====================================index================================================"
+    @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @users }
     end
   end
-
   # GET /users/1
   # GET /users/1.json
   def show
@@ -64,7 +82,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, :notice => 'User was successfully updated.' }
+        format.html { redirect_to root_path, :notice => 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

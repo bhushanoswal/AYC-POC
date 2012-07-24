@@ -1,49 +1,51 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="span4" style="background: #fff5ee; border-style: solid;">
+  <div class="form-actions" style="background: #000000; text-decoration-color: #ffffff;">
+
+      <div style="float:left;">
+        <%= image_tag (@user.picture) %>
+      </div>
+      <h3>&nbsp;hey <%= @user.first_name %>, we found matches near you!</br></h3>
+        <b><i>&nbsp;Fill out the form below to see them</i></b>
+  </div>
+
+  <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <!--<h2><%#= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>-->
+            <ul align="center">
+              <% @user.errors.full_messages.each do |msg| %>
+                  <li ><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
+
+      <div style="float:left;">
+        <%= f.label :choose_username %>
+      </div>
+
+      <div style="margin-left: 120px">
+        <%= f.text_field :username %>
+      </div>
+
+      <div style="float:left;">
+        <%= f.label :create_password %>
+      </div>
+
+      <div style="margin-left: 120px">
+        <%= f.password_field :password %>
+      </div>
+      </br>
+      <div style="margin-left: 120px">
+        <%= f.submit "SHOW ME", :class => "btn btn-large btn-success" %> </br>
+        <div style="text-decoration-style: solid;"><h6>By continuing, you will join the Match Community and agree to its terms</h6>
+        </div>
+
+
+        <!--<div class="form-actions" style="background: #ffe4c4;"><b><%#= f.submit "SHOW ME", :class => "btn btn-success" %></b></div>-->
+
+      </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :locale %><br />
-    <%= f.text_field :locale %>
-  </div>
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :interested_in %><br />
-    <%= f.text_field :interested_in %>
-  </div>
-  <div class="field">
-    <%= f.label :religion %><br />
-    <%= f.text_field :religion %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

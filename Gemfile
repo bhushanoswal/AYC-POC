@@ -25,6 +25,12 @@ gem 'jquery-rails'
 
 gem 'fbgraph'
 gem 'oauth2'
+gem "twitter-bootstrap-rails"
+gem "bcrypt-ruby", :require => "bcrypt"
+
+#group :production do
+#  gem 'pg'
+#end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

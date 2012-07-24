@@ -2,14 +2,17 @@
 
 <table>
   <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Gender</th>
-    <th>Locale</th>
-    <th>Birthday</th>
+    <th>profile pic</th>
+    <th>Uid</th>
+    <th>UserName</th>
     <th>Email</th>
-    <th>Interested in</th>
-    <th>Religion</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Location</th>
+    <th>Relationship_status</th>
+    <th>Interested_in</th>
+    <th>Birthday</th>
+    <th>Country</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,32 +20,27 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.id %></td>
-    <td><%= user.name %></td>
-    <td><%= user.gender %></td>
-    <td><%= user.locale %></td>
-    <td><%= user.birthday %></td>
+    <td><%= image_tag (user.picture) %></td>
+    <td><%= user.uid %></td>
+    <td><%= user.username %></td>
     <td><%= user.email %></td>
+    <td><%= user.age %></td>
+    <td><%= user.gender %></td>
+    <td><%= user.location %></td>
+    <td><%= user.relationship_status %></td>
     <td><%= user.interested_in %></td>
-    <td><%= user.religion %></td>
+    <td><%= user.birthday.strftime("%d-%b-%Y") %></td>
+    <td><%= user.country %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
-  <tr>
-    <td><%= @info['id'] %></td>
-    <td><%= @info['name'] %></td>
-    <td><%= @info['gender'] %></td>
-    <td><%= @info['locale'] %></td>
-    <td><%= @info['birthday'] %></td>
-    <td><%= @info['email'] %></td>
-    <td><%= @info['interested_in'] %></td>
-    <td><%= @info['religion'] %></td>
-  </tr>
+
 </table>
 
 
 <br />
 
 <%= link_to 'New User', new_user_path %>
+

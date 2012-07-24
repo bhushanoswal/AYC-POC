@@ -14,17 +14,23 @@
 ActiveRecord::Schema.define(:version => 20120719095255) do
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "gender"
-    t.string   "locale"
-    t.date     "birthday"
+    t.string   "uid"
+    t.string   "username"
     t.string   "email"
+    t.string   "first_name"
+    t.string   "password"
+    t.string   "password_salt"
+    t.integer  "age"
+    t.string   "gender"
+    t.string   "location"
+    t.string   "relationship_status"
     t.string   "interested_in"
-    t.string   "religion"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.integer  "fb_user_id",      :limit => 8
-    t.string   "fb_access_token"
+    t.date     "birthday"
+    t.string   "status"
+    t.string   "country"
+    t.string   "picture"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
 end
