@@ -39,6 +39,11 @@ class User < ActiveRecord::Base
       user.location = info.location.name
     end
     user.relationship_status = info.relationship_status
+    if (info.intrested_in).nil?
+      user.interested_in = ""
+    else
+      user.interested_in = info.interested_in[0]
+    end
     user.interested_in = info.interested_in[0]
     user.birthday = self.date(info.birthday)
     user.country = country
