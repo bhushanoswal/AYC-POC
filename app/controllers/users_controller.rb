@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    logger.info "=====================================index================================================"
     @users = User.all
 
     respond_to do |format|

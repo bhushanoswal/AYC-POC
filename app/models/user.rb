@@ -33,18 +33,21 @@ class User < ActiveRecord::Base
     user.password = "12ab34kjl132kjl678ljk"
     user.age = self.age(self.date(info.birthday))
     user.gender = info.gender
-    if (info.location).nil?
+    if info.location.nil? || info.location.empty?
       user.location = ""
     else
       user.location = info.location.name
     end
     user.relationship_status = info.relationship_status
-    if (info.intrested_in).nil?
+    if info.interested_in.nil? || info.interested_in.empty?
       user.interested_in = ""
     else
-      user.interested_in = info.interested_in[0]
+      if !info.interested_in[1].nil?
+        user.interested_in = info.interested_in[0]+","+info.interested_in[1]
+      else
+        user.interested_in = info.interested_in[0]
+      end
     end
-    user.interested_in = info.interested_in[0]
     user.birthday = self.date(info.birthday)
     user.country = country
     user.picture = picture
